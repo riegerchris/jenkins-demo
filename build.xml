@@ -1,110 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="ExplodedEar" default="App1,App2,App3" basedir=".">  
-<!-- Define the properties used by the build -->
-<property name="war.home"       value="${basedir}/war"/>
-<property name="jar.home"       value="${basedir}/lib"/>
-<property name="app.home"        value="${basedir}/application.xml"/>
-<property name="ear.name"     value="myapp.ear"/>
+<project name="ExplodedEar" default="App1, App2, App3" basedir=".">  
+	<!-- Define the properties used by the build -->
+	<property name="war.home"       value="${basedir}/war"/>
+	<property name="jar.home"       value="${basedir}/lib"/>
+	<property name="app.home"        value="${basedir}/application.xml"/>
+	<property name="ear.name"     value="DEMO.ear"/>
 
-<target name="App1" depends="initApp1,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
-<echo> Building completed for initApp1 </echo>
-</target>
-<target name="App2" depends="initApp2,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
-<echo> Building completed for initApp2 </echo>
-</target>
-<target name="App3" depends="initApp3,clean,prepare,compile,dist,ear" description="Clean work dirs, then compile and create a WAR">
-<echo> Building completed for initApp3 </echo>
-</target>
-<target name="initApp1" description="Variable Initialization">
-<!-- Define the properties used by the build -->
+	<target name="App1" depends="initApp1,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
+	<echo> Building completed for initApp1 </echo>
+	</target>
+	<target name="App2" depends="initApp2,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
+	<echo> Building completed for initApp2 </echo>
+	</target>
+	<target name="App3" depends="initApp3,clean,prepare,compile,dist,ear" description="Clean work dirs, then compile and create a WAR">
+	<echo> Building completed for initApp3 </echo>
+	</target>
+	<target name="initApp1" description="Variable Initialization">
+	<!-- Define the properties used by the build -->
 
-<echo> Defining properties for initApp1 </echo>
-<property name="app.name"       value="HelloWorld-EJB"/>
-<property name="work.home"       value="${basedir}/${app.name}/work"/>
-<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
-<property name="src.home"        value="${basedir}/${app.name}/src"/>
-<property name="web.home"        value="${basedir}/${app.name}/WebContent"/>
-</target>
+	<echo> Defining properties for initApp1 </echo>
+	<property name="app.name"       value="HelloWorld-EJB"/>
+	<property name="work.home"       value="${basedir}/${app.name}/work"/>
+	<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
+	<property name="src.home"        value="${basedir}/${app.name}/src"/>
+	<property name="web.home"        value="${basedir}/${app.name}/WebContent"/>
+	</target>
 
-<target name="initApp2" description="Variable Initialization">
-<!-- Define the properties used by the build -->
+	<target name="initApp2" description="Variable Initialization">
+	<!-- Define the properties used by the build -->
 
-<echo> Defining properties for initApp2 </echo>
-<var name="app.name" unset="true"/>
-<var name="work.home" unset="true"/>
-<var name="dist.home" unset="true"/>
-<var name="src.home" unset="true"/>
-<var name="web.home" unset="true"/>
+	<echo> Defining properties for initApp2 </echo>
+	<var name="app.name" unset="true"/>
+	<var name="work.home" unset="true"/>
+	<var name="dist.home" unset="true"/>
+	<var name="src.home" unset="true"/>
+	<var name="web.home" unset="true"/>
 
-<property name="app.name"       value="HelloWorld-Web"/>
-<property name="work.home"       value="${basedir}/${app.name}/work"/>
-<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
-<property name="src.home"        value="${basedir}/${app.name}/src"/>
-<property name="web.home"        value="${basedir}/${app.name}/WebContent"/>
-</target>
+	<property name="app.name"       value="HelloWorld-Web"/>
+	<property name="work.home"       value="${basedir}/${app.name}/work"/>
+	<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
+	<property name="src.home"        value="${basedir}/${app.name}/src"/>
+	<property name="web.home"        value="${basedir}/${app.name}/WebContent"/>
+	</target>
 
-<target name="initApp3" description="Variable Initialization">
-<!-- Define the properties used by the build -->
+	<target name="initApp3" description="Variable Initialization">
+	<!-- Define the properties used by the build -->
 
-<echo> Defining properties for initApp3 </echo>
-<var name="app.name" unset="true"/>
-<var name="work.home" unset="true"/>
-<var name="dist.home" unset="true"/>
-<var name="src.home" unset="true"/>
-<var name="web.home" unset="true"/>
+	<echo> Defining properties for initApp3 </echo>
+	<var name="app.name" unset="true"/>
+	<var name="work.home" unset="true"/>
+	<var name="dist.home" unset="true"/>
+	<var name="src.home" unset="true"/>
+	<var name="web.home" unset="true"/>
 
-<property name="app.name"       value="HelloWorld"/>
-<property name="work.home"       value="${basedir}/${app.name}/work"/>
-<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
-<property name="src.home"        value="${basedir}/${app.name}/src"/>
-<property name="web.home"        value="${basedir}/${app.name}/WebContent"/>
-</target>
+	<property name="app.name"       value="HelloWorld"/>
+	<property name="work.home"       value="${basedir}/${app.name}/work"/>
+	<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
+	<property name="src.home"        value="${basedir}/${app.name}/src"/>
+	<property name="web.home"        value="${basedir}/${app.name}/WebContent"/>
+	</target>
 
-<!-- Define the CLASSPATH -->
-<path id="compile.classpath"> 
+	<!-- Define the CLASSPATH -->
+	<path id="compile.classpath"> 
 
-</path>
+	</path>
 
-<target name="clean"  description="Delete old work and dist directories">
-<delete dir="${work.home}"/>
-<delete dir="${dist.home}"/>
-<delete file="${war.home}/${ear.name}"/>
-</target>
+	<target name="clean"  description="Delete old work and dist directories">
+	<delete dir="${work.home}"/>
+	<delete dir="${dist.home}"/>
+	<delete file="${war.home}/${ear.name}"/>
+	</target>
 
-<target name="prepare"  description="Create working dirs and copy static files to work dir">
-<mkdir  dir="${dist.home}"/>
-<mkdir  dir="${work.home}/WEB-INF/classes"/>
-<!-- Copy static HTML and JSP files to work dir -->
-<copy todir="${work.home}">
-  <fileset dir="${web.home}"/>
-</copy>
-</target>
+	<target name="prepare"  description="Create working dirs and copy static files to work dir">
+	<mkdir  dir="${dist.home}"/>
+	<mkdir  dir="${work.home}/WEB-INF/classes"/>
+	<!-- Copy static HTML and JSP files to work dir -->
+	<copy todir="${work.home}">
+	  <fileset dir="${web.home}"/>
+	</copy>
+	</target>
 
-<target name="compile" 
-	  description="Compile Java sources and copy to WEB-INF/classes dir">
-<javac srcdir="${src.home}" destdir="${work.home}/WEB-INF/classes" debug="true" debuglevel="lines,vars,source">
-<classpath refid="compile.classpath"/>
-</javac> 
-<copy  todir="${work.home}/WEB-INF/classes">
-  <fileset dir="${src.home}" excludes="**/*.java"/>
-</copy>
-</target>
+	<target name="compile" 
+		  description="Compile Java sources and copy to WEB-INF/classes dir">
+	<javac srcdir="${src.home}" destdir="${work.home}/WEB-INF/classes" debug="true" debuglevel="lines,vars,source">
+	<classpath refid="compile.classpath"/>
+	</javac> 
+	<copy  todir="${work.home}/WEB-INF/classes">
+	  <fileset dir="${src.home}" excludes="**/*.java"/>
+	</copy>
+	</target>
 
-<target name="dist" 
-	  description="Create WAR file for binary distribution">
-<war destfile="${dist.home}/${app.name}.war">
-<fileset dir="${work.home}"/>
-<classes dir="${work.home}/WEB-INF/classes"/>
-</war>
-<copy file="${dist.home}/${app.name}.war" todir="${war.home}" overwrite="true" />
-</target>
+	<target name="dist" 
+		  description="Create WAR file for binary distribution">
+	<war destfile="${dist.home}/${app.name}.war">
+	<fileset dir="${work.home}"/>
+	<classes dir="${work.home}/WEB-INF/classes"/>
+	</war>
+	<copy file="${dist.home}/${app.name}.war" todir="${war.home}" overwrite="true" />
+	</target>
 
-<target name="ear" >
-<ear destfile="${war.home}/${ear.name}" appxml="${app.home}" update="true">
-  <fileset dir="${jar.home}" includes="*.jar"/>
-  <fileset dir="${war.home}" includes="*.war"/>
-</ear>
-</target>
+	<target name="ear" >
+	<ear destfile="${war.home}/${ear.name}" appxml="${app.home}" update="true">
+	  <fileset dir="${jar.home}" includes="*.jar"/>
+	  <fileset dir="${war.home}" includes="*.war"/>
+	</ear>
+	</target>
 
 </project> 
