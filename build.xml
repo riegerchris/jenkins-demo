@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="ExplodedEar" default="App1, App2, App3" basedir=".">  
+<project name="ExplodedEar" default="all" basedir=".">  
 	<!-- Define the properties used by the build -->
 	<property name="war.home"       value="${basedir}/war"/>
 	<property name="jar.home"       value="${basedir}/lib"/>
 	<property name="app.home"        value="${basedir}/application.xml"/>
 	<property name="ear.name"     value="DEMO.ear"/>
 
+	
+    <target name="all" depends="App1, App2, App3" description="Builds the whole project">
+        <echo>Doing all</echo>
+    </target>
+	
 	<target name="App1" depends="initApp1,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
 	<echo> Building completed for initApp1 </echo>
 	</target>
