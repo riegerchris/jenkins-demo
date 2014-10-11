@@ -12,7 +12,7 @@
         <echo>Doing all</echo>
     </target>
 	
-	<target name="App1" depends="initApp1,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
+	<target name="App1" depends="initApp1,clean,compile,dist" description="Clean work dirs, then compile and create a WAR">
 	<echo> Building completed for initApp1 </echo>
 	</target>
 	<target name="App2" depends="initApp2,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
