@@ -18,7 +18,7 @@
 	<target name="App2" depends="initApp2,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
 	<echo> Building completed for initApp2 </echo>
 	</target>
-	<target name="App3" depends="initApp3,clean,prepare,compile,dist,ear" description="Clean work dirs, then compile and create a WAR">
+	<target name="App3" depends="initApp3,ear" description="Clean work dirs, then compile and create a WAR">
 	<echo> Building completed for initApp3 </echo>
 	</target>
 	<target name="initApp1" description="Variable Initialization">
@@ -29,7 +29,7 @@
 	<property name="work.home"       value="${basedir}/${app.name}/work"/>
 	<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
 	<property name="src.home"        value="${basedir}/${app.name}/src"/>
-	<property name="web.home"        value="${basedir}/${app.name}/WebContent"/>
+	<!--property name="web.home"        value="${basedir}/${app.name}/WebContent"/-->
 	</target>
 
 	<target name="initApp2" description="Variable Initialization">
@@ -60,11 +60,11 @@
 	<var name="web.home" unset="true"/>
 
 	<property name="app.name"       value="HelloWorld"/>
-	<property name="work.home"       value="${basedir}/${app.name}/work"/>
+	<!--property name="work.home"       value="${basedir}/${app.name}/work"/>
 	<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
 	<property name="src.home"        value="${basedir}/${app.name}/src"/>
 	<property name="web.home"        value="${basedir}/${app.name}/WebContent"/>
-	</target>
+	--></target>
 
 	<!-- Define the CLASSPATH -->
 	<path id="compile.classpath"> 
