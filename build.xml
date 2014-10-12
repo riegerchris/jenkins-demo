@@ -67,8 +67,8 @@
                 <include name="**/*.jar"/>
             </fileset>  
 
-            <fileset dir="${outputartifacts}">
-                <include name="**/*.jar"/>
+            <fileset dir="${ejb.src}">
+                <include name="**/*.java"/>
             </fileset>                  
         </classpath>
     </javac>
