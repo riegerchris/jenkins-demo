@@ -12,7 +12,7 @@
         <echo>Doing all</echo>
     </target>
 	
-	<target name="App1" depends="initApp1,clean,compileJar,dist" description="Clean work dirs, then compile and create a WAR">
+	<target name="App1" depends="initApp1,clean,compileEJB,dist" description="Clean work dirs, then compile and create a WAR">
 	<echo> Building completed for initApp1 </echo>
 	</target>
 	<target name="App2" depends="initApp2,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
@@ -28,7 +28,7 @@
 	<property name="app.name"       value="HelloWorld-EJB"/>
 	<property name="work.home"       value="${basedir}/${app.name}/work"/>
 	<property name="dist.home"       value="${basedir}/${app.name}/dist"/>
-	<property name="src.home"        value="${basedir}/${app.name}/src"/>
+	<property name="src.home"        value="${basedir}/${app.name}/ejbModule/bean"/>
 	<!--property name="web.home"        value="${basedir}/${app.name}/WebContent"/-->
 	</target>
 
@@ -87,7 +87,7 @@
 	</copy>
 	</target>
 	
-	<target name="compileJar">
+	<target name="compileEJB">
 	<mkdir  dir="${work.home}/WEB-INF/classes"/>
 	<javac srcdir="${src.home}" destdir="${work.home}/WEB-INF/classes" debug="true" debuglevel="lines,vars,source">
 	<classpath refid="compile.classpath"/>
