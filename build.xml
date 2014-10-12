@@ -87,7 +87,7 @@
     </copy>
 </target>
 
-<target depends="init-web,create-ejb-client" name="build-web">
+<target depends="init-web" name="build-web"><!--create-ejb-client-->
     <javac debug="true" debuglevel="${debuglevel}" destdir="${web.builddir.classes}" includeantruntime="false" source="${source}" target="${target}">
         <src path="${web.src}"/>
         <classpath>
@@ -101,7 +101,7 @@
     </javac>
 </target>
 <!-- ############## EJB CLIENT ################################################################################################################ -->
-<target name="init-ejb-client" depends="init">
+<!--target name="init-ejb-client" depends="init">
     <mkdir dir="${ejbclient.builddir}"/>
     <copy includeemptydirs="false" todir="${ejbclient.builddir.classes}">
         <fileset dir="${ejbclient.src}">
@@ -120,7 +120,7 @@
             </fileset>          
         </classpath>
     </javac>
-</target>
+</target-->
 
 
 <!-- ############ CREATE ARCHIVES################################################################################################################## -->
@@ -128,15 +128,11 @@
     <war destfile="${outputartifacts}/${web.name}.war" basedir="${web.builddir}" webxml="${web.projectpath}/WebContent/WEB-INF/web.xml"/>
 </target>
 
-<target name="create-ejb-client" depends="build-ejb-client">
-    <jar destfile="${outputartifacts}/${ejbclient.name}.jar" basedir="${ejbclient.builddir.classes}" includes="**/*"/>
-</target>
-
 <target name="create-ejb" depends="build-ejb">
     <jar destfile="${outputartifacts}/${ejb.name}.jar" basedir="${ejb.builddir.classes}" includes="**/*">
-        <manifest>
+        <!--manifest>
             <attribute name="Class-Path" value="${ejbclient.name}.jar"/>
-        </manifest>
+        </manifest-->
     </jar>
 </target>
 
