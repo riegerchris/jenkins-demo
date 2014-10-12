@@ -12,7 +12,7 @@
         <echo>Doing all</echo>
     </target>
 	
-	<target name="App1" depends="initApp1,clean,compile,dist" description="Clean work dirs, then compile and create a WAR">
+	<target name="App1" depends="initApp1,clean,compileJar,dist" description="Clean work dirs, then compile and create a WAR">
 	<echo> Building completed for initApp1 </echo>
 	</target>
 	<target name="App2" depends="initApp2,clean,prepare,compile,dist" description="Clean work dirs, then compile and create a WAR">
@@ -70,6 +70,7 @@
 	<path id="compile.classpath"> 
 
 	</path>
+	
 
 	<target name="clean"  description="Delete old work and dist directories">
 	<delete dir="${work.home}"/>
@@ -85,7 +86,13 @@
 	  <fileset dir="${web.home}"/>
 	</copy>
 	</target>
+	
+	<target name="compileJar">
+	<mkdir dir="build/classes"/>
+		<javac srcdir="${src.home}" destdir="${work.home}/build/classes"/>
+	</target>
 
+	
 	<target name="compile" 
 		  description="Compile Java sources and copy to WEB-INF/classes dir">
 	<javac srcdir="${src.home}" destdir="${work.home}/WEB-INF/classes" debug="true" debuglevel="lines,vars,source">
