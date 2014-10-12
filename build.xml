@@ -10,8 +10,8 @@
 <property name="builddir" value="build" />
 <property name="outputartifacts" value="out" />
 
-<property name="web.name" value="ProjectWeb" />
-<property name="web.projectpath" value="ProjectWeb"/>
+<property name="web.name" value="HelloWorld-Web" />
+<property name="web.projectpath" value="HelloWorld-Web"/>
 <property name="web.src" value="${web.projectpath}/src" />
 <property name="web.builddir" value="${builddir}/web" />
 <property name="web.builddir.classes" value="${web.builddir}/WEB-INF/classes"/>
