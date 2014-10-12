@@ -52,6 +52,7 @@
 <!-- ########### EJB App ###################################################################################################################    -->
 <target name="init-ejb" depends="init">
     <mkdir dir="${ejb.builddir}" /> 
+	<mkdir dir="${ejb.builddir.classes}" /> 
     <copy includeemptydirs="false" todir="${ejb.builddir.classes}">
         <fileset dir="${ejb.src}">
             <exclude name="**/*.java"/>
