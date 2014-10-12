@@ -97,6 +97,7 @@
             <fileset dir="out/">
                 <include name="**/*.jar"/>
             </fileset>  
+			<pathelement location="${outputartifacts}" />
         </classpath>
     </javac>
 </target>
