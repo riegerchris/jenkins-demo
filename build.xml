@@ -89,7 +89,9 @@
 	
 	<target name="compileJar">
 	<mkdir dir="build/classes"/>
-		<javac srcdir="${src.home}" destdir="${work.home}/build/classes"/>
+	<javac srcdir="${src.home}" destdir="${work.home}/WEB-INF/classes" debug="true" debuglevel="lines,vars,source">
+	<classpath refid="compile.classpath"/>
+	</javac> 
 	</target>
 
 	
