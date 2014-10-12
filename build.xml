@@ -67,9 +67,7 @@
                 <include name="**/*.jar"/>
             </fileset>  
 
-            <fileset dir="${ejb.src}">
-                <include name="**/*.java"/>
-            </fileset>                  
+			<pathelement location="${outputartifacts}" />               
         </classpath>
     </javac>
 </target>
@@ -88,7 +86,7 @@
     </copy>
 </target>
 
-<target depends="init-web, build-ejb" name="build-web"><!--create-ejb-client-->
+<target depends="init-web, create-ejb" name="build-web"><!--create-ejb-client-->
     <javac debug="true" debuglevel="${debuglevel}" destdir="${web.builddir.classes}" includeantruntime="false" source="${source}" target="${target}">
         <src path="${web.src}"/>
         <classpath>
